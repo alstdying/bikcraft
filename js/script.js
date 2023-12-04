@@ -31,13 +31,13 @@ parametros.forEach(ativarProduto);
 const perguntas = document.querySelectorAll(".perguntas button");
 
 function ativarPergunta(event){
-    const pergunta = event.currentTarget;
-    const controls = pergunta.getAttribute("aria-controls");
-    const resposta = document.getElementById(controls);
+    const pergunta = event.currentTarget; //obtem o botao especifico que foi clicado
+    const controls = pergunta.getAttribute("aria-controls"); //obtem o valor do atributo aria-controls do botão clicado, o id do elemento que contém a resposta da pergunta
+    const resposta = document.getElementById(controls); //localiza o elemento com o id correspondente a resposta da pergunta
 
-    resposta.classList.toggle("ativa");
-    const ativa = resposta.classList.contains("ativa");
-    pergunta.setAttribute("aria-expanded", ativa);
+    resposta.classList.toggle("ativa"); //alterna a classe "ativa" na resposta, mostrando ou ocultando o conteudo da resposta
+    const ativa = resposta.classList.contains("ativa"); //verifica se a classe "ativa" está presente na resposta 
+    pergunta.setAttribute("aria-expanded", ativa); //define o valor do atributo aria-expanded no botão da pergunta para refletir se a resposta está atualmente visível ou oculta 
 }
 
 function eventosPerguntas(pergunta){
