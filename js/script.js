@@ -45,3 +45,26 @@ function eventosPerguntas(pergunta){
 }
 
 perguntas.forEach(eventosPerguntas);
+
+
+//galeria de bicicletas
+const galeria = document.querySelectorAll(".bicicleta-imagens img");
+const galeriaContainer = document.querySelector(".bicicleta-imagens");
+
+console.log(galeria);
+
+function trocarImagem(event){
+    const img = event.currentTarget;
+    const media = matchMedia("(min-width: 1000px)").matches; //cria um objeto media que verifica se a largura da tela tem pelo menos 1000px
+    //o matches é uma propriedade booleana que pertence ao objeto retornado por matchMedia, que indica se a condição da media query atual é verdadeira ou não, ou seja, se a largura da janela for >= 1000px, matches = true, se for <1000, será false; a variável media vai receber justamente esse valor booleano
+    if(media){
+        galeriaContainer.prepend(img); 
+        //a função prepend é usada para inserir um ou mais elementos como filhos antes de todos os outros elementos, ou seja, a img será inserida como primeiro filho dentro do elemento que é referenciado pela variável galeriaContainer
+    }
+}
+
+function eventosGaleria(img){
+    img.addEventListener("click", trocarImagem);
+}
+
+galeria.forEach(eventosGaleria);
