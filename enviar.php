@@ -2,7 +2,7 @@
     $email = "";
     $senha = "";
 
-    $smtp = "smtp.titan.email";
+    $smtp = "smtp.gmail.com";
     $porta = 465;
 
     $body = "";
@@ -31,19 +31,19 @@
     $mail = new PHPMailer(true);
 
     try {
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
         $mail->Host       = $smtp;
         $mail->SMTPAuth   = true;
-        $mail->Username   = $email;
-        $mail->Password   = $senha;
+        $mail->Username   = 'alstdying@gmail.com';
+        $mail->Password   = '93S@o4loGg0!#gM2';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = $porta;
         $mail->CharSet    = "utf-8";
       
         //Recipients
-        $mail->setFrom($email, "Formulário");
-        $mail->addAddress($email, "Formulário");
+        $mail->setFrom('alstdying@gmail.com', "Formulário");
+        $mail->addAddress('alstdying@gmail.com', "Formulário");
         $mail->addReplyTo($email_contato);
       
         $mail->isHTML(true);
